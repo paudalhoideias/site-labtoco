@@ -1,1 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LabToco | Ideias que ganham forma</title>
+
+  <meta
+    name="description"
+    content="LabToco cria produtos, ferramentas, jogos e soluções personalizadas através da impressão 3D. Uma iniciativa Pau D'Alho Ideias Criativas."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f4f1ea;
+      --text: #222222;
+      --muted: #66625c;
+      --accent: #ef8f38;
+      --accent-dark: #d87520;
+      --line: rgba(34, 34, 34, 0.12);
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      width: 100%;
+      padding: 24px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand-by {
+      margin-top: 7px;
+      font-size: 0.68rem;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .top-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .top-link:hover {
+      color: var(--accent-dark);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 7%;
+    }
+
+    .hero {
+      width: 100%;
+      max-width: 1050px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2.3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      max-width: 650px;
+      font-size: clamp(3.5rem, 7vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      max-width: 590px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 34px;
+    }
+
+    .category {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: var(--text);
+    }
+
+    .button-primary:hover {
+      background: var(--accent-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      background: var(--white);
+    }
+
+    .visual {
+      position: relative;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shape-big {
+      width: min(390px, 75vw);
+      aspect-ratio: 1;
+      border-radius: 42% 58% 58% 42% / 48% 44% 56% 52%;
+      background: var(--accent);
+      transform: rotate(-8deg);
+      position: absolute;
+    }
+
+    .shape-small {
+      width: 150px;
+      height: 150px;
+      background: var(--text);
+      border-radius: 32px;
+      transform: rotate(21deg);
+      position: absolute;
+      right: 7%;
+      bottom: 8%;
+    }
+
+    .lab-mark {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(5rem, 10vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -8px;
+      transform: rotate(4deg);
+      color: var(--bg);
+      user-select: none;
+    }
+
+    .status {
+      margin-top: 45px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    footer {
+      width: 100%;
+      padding: 22px 7%;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 800px) {
+
+      .topbar {
+        padding: 20px 6%;
+      }
+
+      .top-link {
+        display: none;
+      }
+
+      main {
+        padding: 55px 6%;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 16vw, 5rem);
+        letter-spacing: -3px;
+      }
+
+      .intro {
+        font-size: 1rem;
+      }
+
+      .visual {
+        min-height: 300px;
+        order: -1;
+      }
+
+      .shape-big {
+        width: 260px;
+      }
+
+      .shape-small {
+        width: 90px;
+        height: 90px;
+        right: 15%;
+      }
+
+      .lab-mark {
+        font-size: 5rem;
+      }
+
+      footer {
+        padding: 20px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="brand">
+      <span class="brand-name">LabToco</span>
+      <span class="brand-by">by Pau D'Alho</span>
+    </div>
+
+    <a
+      class="top-link"
+      href="https://www.paudalhoideias.com.br"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Pau D'Alho →
+    </a>
+
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+
+      <div class="content">
+
+        <p class="eyebrow">
+          Laboratório de ideias
+        </p>
+
+        <h1>
+          Ideias que<br>ganham forma.
+        </h1>
+
+        <p class="intro">
+          Produtos criativos, ferramentas, jogos e soluções desenvolvidas
+          através da impressão 3D para criar, trabalhar e se divertir.
+        </p>
+
+        <div class="categories">
+
+          <span class="category">Cerâmica</span>
+          <span class="category">Confeitaria</span>
+          <span class="category">Jogos</span>
+          <span class="category">Personalizados</span>
+
+        </div>
+
+        <div class="actions">
+
+          <!-- TROCAR PELO SEU NÚMERO DE WHATSAPP -->
+          <a
+            class="button button-primary"
+            href="https://wa.me/55SEUNUMERO?text=Olá!%20Conheci%20a%20LabToco%20pelo%20site%20e%20gostaria%20de%20saber%20mais."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Fale com a LabToco
+          </a>
+
+          <!-- TROCAR PELO INSTAGRAM DA LABTOCO -->
+          <a
+            class="button button-secondary"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+
+        </div>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Nosso novo espaço está sendo preparado.
+        </div>
+
+      </div>
+
+
+      <div class="visual">
+
+        <div class="shape-big"></div>
+
+        <div class="shape-small"></div>
+
+        <div class="lab-mark">
+          LAB
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      © 2026 LabToco · Uma iniciativa Pau D'Alho Ideias Criativas
+    </span>
+
+    <a
+      href="https://www.paudalhoideias.com.br"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      paudalhoideias.com.br
+    </a>
+
+  </footer>
+
+</body>
+</html>
